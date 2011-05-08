@@ -13,6 +13,9 @@ WriteMakefile(
     PL_FILES            => {},
     PREREQ_PM => {
         'Test::More' => 0,
+        'Wiki::Toolkit' => 0,
+        'Dancer' => 0,
+        'Dancer::Plugin::Database' => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Dancer-Plugin-Wiki-Toolkit-*' },

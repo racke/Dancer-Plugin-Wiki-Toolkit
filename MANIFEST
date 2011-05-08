@@ -3,6 +3,7 @@ MANIFEST
 Makefile.PL
 README
 lib/Dancer/Plugin/Wiki/Toolkit.pm
+lib/Dancer/Plugin/Wiki/Toolkit/Object.pm
 t/00-load.t
 t/manifest.t
 t/pod-coverage.t
