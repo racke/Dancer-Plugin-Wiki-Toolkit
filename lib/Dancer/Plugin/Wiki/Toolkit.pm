@@ -32,7 +32,7 @@ our $VERSION = '0.0001';
 
 =over 4
 
-=item C<db_connection_name> (optional)
+=item C<connection> (optional)
 
 We use L<Dancer::Plugin::Database> to obtain database connections.  This option
 allows you to specify the name of a connection defined in the config file to
@@ -69,9 +69,10 @@ sub _setup_wiki_toolkit {
 
 	# retrieve settings
 	$settings = plugin_setting;
+	$settings->{connection} ||= '';
 
 	# determine database driver
-	$driver = database->{Driver}->{Name};
+	$driver = database($settings->{connection})->{Driver}->{Name};
 
 	# check whether Wiki::Toolkit supports this driver
 	if ($driver eq 'mysql') {
@@ -95,7 +96,7 @@ sub _setup_wiki_toolkit {
 		die "Failed to load $class: $@\n";
 	}
 	eval {
-		$store_object = $class->new(dbh => database)
+	    $store_object = $class->new(dbh => database($settings->{connection}));
 	};
 	if ($@) {
 		die "Failed to instantiate $class: $@\n";
