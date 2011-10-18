@@ -155,7 +155,7 @@ register wiki => sub {
 	$opts{function} ||= 'display';
 	
 	if ($opts{function} eq 'save') {
-		return $wiki_tk_obj->modify_page($arg, $opts{content}, $opts{checksum});
+		return $wiki_tk_obj->modify_page($arg, $opts{content}, $opts{checksum}, $opts{metadata});
 	}
 	
 	# display page
