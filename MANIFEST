@@ -1,5 +1,7 @@
 Changes
+ignore.txt
 MANIFEST
+MANIFEST.SKIP
 Makefile.PL
 README
 lib/Dancer/Plugin/Wiki/Toolkit.pm
